@@ -1,0 +1,3 @@
+{% extends 'core/base.html' %}{% block title %}Submit — ARTBATTLE{% endblock %}{% block content %}
+<section class="form-page"><div class="eyebrow">ENTER THE ARENA</div><h1>Submit your artwork.</h1><p>{{battle.theme}} · {{battle.title}}</p><form method="post" enctype="multipart/form-data" class="form-card">{% csrf_token %}{{form.as_p}}<div class="form-note">Integrity check: exact duplicate files are automatically detected. AI-generated work must be honestly declared.</div><button class="button full" type="submit">Submit artwork</button></form></section>
+{% endblock %}

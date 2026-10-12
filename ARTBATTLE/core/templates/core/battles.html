@@ -1,0 +1,4 @@
+{% extends 'core/base.html' %}{% block title %}Battles — ARTBATTLE{% endblock %}{% block content %}
+<section class="page-head"><div class="eyebrow">THE ARENA</div><h1>Weekly battles.</h1><p>One theme. One canvas. One chance to stand out.</p></section>
+<div class="battle-grid">{% for b in battles %}<a class="battle-card" href="{% url 'battle_detail' b.pk %}"><div class="battle-top"><span class="tag">{{b.status|upper}}</span>{% if b.is_monthly %}<span class="tag accent">MONTHLY</span>{% endif %}</div><h2>{{b.theme}}</h2><p>{{b.title}}</p><div class="battle-meta"><span>{{b.artwork_count}} entries</span><span>Prize {{b.prize_amount|floatformat:0}}</span></div></a>{% empty %}<div class="empty">No battles published yet.</div>{% endfor %}</div>
+{% endblock %}

@@ -1,0 +1,3 @@
+{% extends 'core/base.html' %}{% block title %}Winners — ARTBATTLE{% endblock %}{% block content %}
+<section class="page-head"><div class="eyebrow">HALL OF FAME</div><h1>Winners.</h1><p>The artists who took the arena.</p></section><div class="winner-grid">{% for w in wins %}<a class="winner-card" href="{% url 'artwork_detail' w.artwork.pk %}"><img src="{{w.artwork.image.url}}"><div><span class="tag">#{{w.rank}} WINNER</span><h2>{{w.artwork.title}}</h2><p>{{w.artwork.artist.display_name}} · {{w.battle.theme}}</p></div></a>{% empty %}<div class="empty">The Hall of Fame is waiting for its first champion.</div>{% endfor %}</div>
+{% endblock %}

@@ -1,0 +1,3 @@
+{% extends 'core/base.html' %}{% block title %}Artists — ARTBATTLE{% endblock %}{% block content %}
+<section class="page-head"><div class="eyebrow">DISCOVERY</div><h1>Meet the artists.</h1><p>Find emerging talent and competition regulars.</p></section><div class="artist-grid">{% for a in artists %}<a class="artist-card" href="{% url 'artist_profile' a.user.username %}">{% if a.avatar %}<img src="{{a.avatar.url}}">{% else %}<div class="avatar-placeholder">{{a.display_name|first|upper}}</div>{% endif %}<h3>{{a.display_name}}</h3><p>@{{a.user.username}}</p><div><b>{{a.wins}}</b> wins · <b>{{a.rating}}</b> rating</div></a>{% empty %}<div class="empty">No artists yet.</div>{% endfor %}</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Submit Artwork — ARTBATTLE{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+
+    <div class="eyebrow">CREATE</div>
+
+    <h1>Submit your artwork.</h1>
+
+    <p>
+        Choose an open battle and enter your work into the arena.
+    </p>
+
+</section>
+
+
+<div class="battle-grid">
+
+    {% for battle in battles %}
+
+        <article class="card">
+
+            <div class="eyebrow">
+                OPEN BATTLE
+            </div>
+
+            <h2>{{ battle.title }}</h2>
+
+            <p>
+                {{ battle.theme }}
+            </p>
+
+            <p class="muted">
+                Submission deadline:
+                {{ battle.submission_deadline }}
+            </p>
+
+            <a
+                class="button"
+                href="{% url 'submit_artwork' battle.pk %}"
+            >
+                Submit Artwork
+            </a>
+
+        </article>
+
+    {% empty %}
+
+        <div class="empty">
+            <h2>No open battles right now.</h2>
+
+            <p>
+                New submission opportunities will appear here
+                when a battle opens.
+            </p>
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

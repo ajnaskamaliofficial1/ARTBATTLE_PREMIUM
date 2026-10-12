@@ -1,0 +1,2 @@
+{% extends 'core/base.html' %}{% block title %}Edit profile — ARTBATTLE{% endblock %}{% block content %}
+<section class="form-page"><div class="eyebrow">YOUR IDENTITY</div><h1>Edit artist profile.</h1><form method="post" enctype="multipart/form-data" class="form-card">{% csrf_token %}{{form.as_p}}<button class="button full">Save profile</button></form></section>{% endblock %}

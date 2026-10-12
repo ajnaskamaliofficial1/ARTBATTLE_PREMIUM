@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Leaderboard — ARTBATTLE{% endblock %}
+
+{% block content %}
+
+<section class="page-head">
+    <div class="eyebrow">RANKING</div>
+    <h1>Global leaderboard.</h1>
+    <p>Reputation built through competition, not follower counts.</p>
+</section>
+
+<div class="leader-table">
+
+    {% for a in leaders %}
+
+    <a class="leader-row" href="{% url 'artist_profile' a.user.username %}">
+
+        <b class="pos">
+            {{ forloop.counter|stringformat:"02d" }}
+        </b>
+
+        <span class="leader-person">
+            {{ a.display_name }}
+            <small>@{{ a.user.username }}</small>
+        </span>
+
+        <span>
+            {{ a.battles_joined }} battles
+        </span>
+
+        <span>
+            {{ a.wins }} wins
+        </span>
+
+        <span>
+            {{ a.vote_total|default:0 }} votes
+        </span>
+
+        <strong>
+            {{ a.rating }}
+        </strong>
+
+    </a>
+
+    {% empty %}
+
+    <div class="empty">
+        No ranked artists yet.
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

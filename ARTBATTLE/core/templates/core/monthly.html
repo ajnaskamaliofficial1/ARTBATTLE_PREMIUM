@@ -1,0 +1,3 @@
+{% extends 'core/base.html' %}{% block title %}Championship — ARTBATTLE{% endblock %}{% block content %}
+<section class="champion-hero"><div class="eyebrow">THE BIG STAGE</div><h1>Monthly Championship.</h1><p>Where the strongest artists meet for the biggest battle of the month.</p></section><div class="battle-grid">{% for b in battles %}<a class="battle-card" href="{% url 'battle_detail' b.pk %}"><span class="tag accent">CHAMPIONSHIP</span><h2>{{b.theme}}</h2><p>{{b.title}}</p><div class="battle-meta"><span>{{b.artwork_count}} entries</span><span>Prize {{b.prize_amount|floatformat:0}}</span></div></a>{% empty %}<div class="empty">No championship has been published yet.</div>{% endfor %}</div>
+{% endblock %}
